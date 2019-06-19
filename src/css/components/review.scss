@@ -1,0 +1,161 @@
+.review {
+  display: none;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  width: 380px;
+  background: #fff;
+  border-radius: 15px;
+  overflow: hidden;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: $primary-color;
+    padding: 10px 20px;
+  }
+
+  &__location {
+    padding-right: 15px;
+    font-size: 12px;
+    color: #fff;
+  }
+
+  &__close {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transition: .3s;
+    cursor: pointer;
+
+    &:hover {
+
+      &:after,
+      &:before {
+        background: red;
+      }
+    }
+
+    &:before,
+    &:after {
+      @include pseudo();
+      top: 50%;
+      left: 50%;
+      width: 15px;
+      height: 3px;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      transition: .3s;
+    }
+
+    &:before {
+      transform: rotate(45deg);
+    }
+
+    &:after {
+      transform: rotate(-45deg);
+
+    }
+  }
+
+  &__content {
+    padding: 20px;
+  }
+
+  &__list {
+    margin-bottom: 25px;
+    height: 140px;
+    padding-bottom: 10px;
+    overflow-y: scroll;
+    border-bottom: 1px solid #f0f0f0;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #fff;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #c4c4c4;
+    }
+
+  }
+
+  &__item {
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &-header {
+      display: flex;
+      align-items: flex-end;
+      margin-bottom: 5px;
+      font-size: 16px;
+    }
+
+    &-user {
+      font-weight: bold;
+      margin-right: 15px;
+    }
+
+    &-position {
+      margin-right: 15px;
+      color: $font-color-light;
+    }
+
+    &-date {
+      color: $font-color-light;
+      font-size: 12px;
+    }
+  }
+
+  &-form {
+    &__caption {
+      margin-bottom: 12px;
+      font-size: 16px;
+      text-transform: uppercase;
+      font-weight: bold;
+      color: $primary-color;
+    }
+
+    &__block {
+      margin-bottom: 12px;
+    }
+
+    &__input,
+    &__textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 14px;
+      border: 1px solid #c4c4c4;
+      border-radius: 15px;
+
+      &::placeholder {
+        font-size: 14px;
+      }
+
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
+    }
+
+    &__input {
+      height: 32px;
+    }
+
+    &__textarea {
+      height: 122px;
+      resize: none;
+    }
+
+    &__action {
+      text-align: right;
+    }
+  }
+}

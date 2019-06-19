@@ -5,5 +5,47 @@ include sections/head-system
   #map.map
 
 
+  .review
+
+    .review__header
+      .review__location Здесь какой-то адрес
+      .review__close
+
+    .review__content
+
+      .review__list
+        .review__item
+          .review__item-header
+            .review__item-user svetlana
+            .review__item-position Шоколадница
+            .review__item-date 01.01.2019
+          .review__item-text Здесь какой-то текст
+
+        .review__item
+          .review__item-header
+            .review__item-user svetlana
+            .review__item-position Шоколадница
+            .review__item-date 01.01.2019
+          .review__item-text Здесь какой-то текст
+
+        .review__item
+          .review__item-header
+            .review__item-user svetlana
+            .review__item-position Шоколадница
+            .review__item-date 01.01.2019
+          .review__item-text Здесь какой-то текст
+
+      form.review-form
+        .review-form__caption Ваш отзыв
+        .review-form__block
+          input.review-form__input(placeholder="Ваше имя")
+        .review-form__block
+          input.review-form__input(placeholder="Укажите место")
+        .review-form__block
+          textarea.review-form__textarea(placeholder="Поделитесь впечатлениями")
+        .review-form__action
+          button.review-form__button.button-action Добавить
+
+
 
 include sections/footer-system
