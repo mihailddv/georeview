@@ -4,28 +4,15 @@
   margin-right: auto;
   margin-left: auto;
 }
-// @media (min-width: 768px) {
-//   .container {
-//     width: 750px;
-//   }
-// }
-// @media (min-width: 992px) {
-//   .container {
-//     width: 970px;
-//   }
-// }
+
 @media (min-width: 1250px) {
   .container {
     width: 1220px;
   }
 }
-//@media (min-width: 1400px) {
-//  .container {
-//    width: 1420px;
-//  }
-//}
-//@media (min-width: 1800px) {
-//  .container {
-//    width: 1800px;
-//  }
-//}
+
+.main-container {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+}
