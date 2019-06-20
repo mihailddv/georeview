@@ -1,6 +1,24 @@
-<script src="https://api-maps.yandex.ru/2.1/?lang=ru-RU" type="text/javascript"></script>
+script(src="https://api-maps.yandex.ru/2.1/?lang=ru-RU")
+script(src="sources/libs/handlebars.js")
 script(src="sources/js/map.js")
 script(src="sources/js/script.js")
+
+<script type="text/x-handlebars-template" id="reviews__list">
+  .review__list
+|   {{#if list}}
+|     {{#each list}}
+|        .review__item
+|          .review__item-header
+|            .review__item-user {{name}}
+|            .review__item-position {{place}}
+|            .review__item-date {{date}}
+|          .review__item-text {{text}}
+|     {{/each}}
+|     {{else}}
+|        .review__item
+|          .review__item-text Отзывов нет
+|     {{/if}}
+</script>
 
 body
 html
