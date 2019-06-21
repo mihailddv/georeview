@@ -1,9 +1,21 @@
 ymaps.ready(init);
+
+function createPlacemark(coords) {
+  return new ymaps.Placemark(coords, {
+      // iconCaption: 'поиск...'
+  }, {
+      preset: 'islands#violetDotIconWithCaption',
+      draggable: true
+  });
+}
+
 function init() {
   var myMap = new ymaps.Map("map", {
     center: [55.76, 37.64],
     zoom: 14
   });
+
+  var myPlacemark;
 
   myMap.events.add('click', function (e) {
     // показываем элемент
@@ -29,10 +41,8 @@ function init() {
       reviewAddress.innerText = address;
     });
 
-    
-
-
-    // console.log(pagePixels);
+    myPlacemark = createPlacemark(coords);
+    myMap.geoObjects.add(myPlacemark);
     
   });
 }
