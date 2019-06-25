@@ -6,8 +6,9 @@ var reviewClose = document.querySelector('.review__close'),
     reviewItemName = document.querySelector('.review__item-user'),
     reviewItemDate = document.querySelector('.review__item-date'),
     reviewItemPlace = document.querySelector('.review__item-position'),
-    reviewItemText = document.querySelector('.review__item-text'),
-    reviewSend = document.querySelector('.review-form__button');
+    reviewItemText = document.querySelector('.review__item-text');
+    
+    // reviewSend = document.querySelector('.review-form__button');
 
 // очищаем форму
 function clearForm() {
@@ -32,13 +33,5 @@ function addReview() {
 
 reviewClose.addEventListener('click', function () {
   review.style.display = 'none';
-  clearForm();
-});
-
-reviewSend.addEventListener('click', function(e) {
-  e.preventDefault();
-
-  addReview();
-
   clearForm();
 });

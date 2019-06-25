@@ -1,5 +1,7 @@
 ymaps.ready(init);
 
+
+
 function createPlacemark(coords) {
   return new ymaps.Placemark(coords, {
       // iconCaption: 'поиск...'
@@ -9,13 +11,14 @@ function createPlacemark(coords) {
   });
 }
 
+var myPlacemark;
+
 function init() {
   var myMap = new ymaps.Map("map", {
     center: [55.76, 37.64],
     zoom: 14
   });
 
-  var myPlacemark;
 
   myMap.events.add('click', function (e) {
     // показываем элемент
@@ -32,6 +35,9 @@ function init() {
     review.style.left = pagePixels[0]+"px";
     review.style.top = pagePixels[1]+"px";
 
+    myPlacemark = createPlacemark(coords);
+    myMap.geoObjects.add(myPlacemark);
+
 
     ymaps.geocode(coords).then(function (res) {
       var firstGeoObject = res.geoObjects.get(0);
@@ -40,9 +46,39 @@ function init() {
       // адрес в заголовок формы       
       reviewAddress.innerText = address;
     });
-
-    myPlacemark = createPlacemark(coords);
-    myMap.geoObjects.add(myPlacemark);
     
   });
 }
+
+const reviewSend = document.querySelector('.review-form__button');
+
+reviewSend.addEventListener('click', function(e) {
+  e.preventDefault();  
+
+  addReview();
+
+  clearForm();
+});
+
+let marks = {
+  '55.66-37.54': [
+      {
+          name: 'Тест',
+          place: 'Тест',
+          comment: 'Тест',
+          date: '01.01.2019'
+      }
+  ]
+};
+
+function loadReviews() {
+  let reviewsMap = localStorage.getItem('georeviews') || '{}';
+
+  return JSON.parse(reviewsMap);
+}
+
+localStorage.setItem('georeviews', JSON.stringify(marks));
+
+// let reviewsMap = loadReviews();
+
+loadReviews();
